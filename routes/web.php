@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('login', [AuthController::class, 'index']);
+Route::prefix('auth')->group(function () {
+    Route::get('redirect', [AuthController::class, 'redirect']);
+    Route::get('callback', [AuthController::class, 'callback']);
+});
+Route::get('logout', [AuthController::class, 'destroy']);

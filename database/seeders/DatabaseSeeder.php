@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
+use App\Models\Service;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +14,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::create([
+            'name' => 'Arif H Rezaldy',
+            'email' => 'ahrezaldy@gmail.com',
+            'avatar' => 'https://lh3.googleusercontent.com/a/ACg8ocKPaddhTF-3E6UKtQBujFp2fNS5gjC3kWWB249Vtl9K4_AV17w=s96-c',
+            'role' => User::ROLE_ADMIN,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        Category::create([
+            'name' => 'E-Book',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        Service::create([
+            'name' => 'Google Drive',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
